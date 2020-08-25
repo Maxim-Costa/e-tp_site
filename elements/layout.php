@@ -26,9 +26,13 @@ if (Auth::check()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $pageTitle ?? 'Home' ?> - E-TP</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
@@ -80,7 +84,7 @@ if (Auth::check()) {
                             <button class="border-0 bg-transparent btn-no-active" type="button" id="dropdownMenuButton"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="/avatar/<?php if (file_exists("avatar/avatar-" . $_SESSION['auth'] . ".png")) {
-                                    echo "avatar-" . $_SESSION['auth'] . ".png?cache=".base64_encode(time());
+                                    echo "avatar-" . $_SESSION['auth'] . ".png?cache=" . base64_encode(time());
                                 } else {
                                     echo "avatar.png";
                                 } ?>" alt=""
@@ -123,7 +127,7 @@ if (Auth::check()) {
 <div id="toast-container"></div>
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/jquery.countdown.min.js"></script>
-<script src="/assets/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/assets/js/Toasty.js"></script>
 <?= $pageJavascripts ?? '' ?>
 </body>
