@@ -39,7 +39,11 @@ RewriteEngine on
 # END cPanel-generated php ini directives, do not edit
 RewriteCond %{HTTP_HOST} ^e\-tp\.hosterfy\.fr$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.e\-tp\.hosterfy\.fr$
-RewriteRule ^/?$ "http\:\/\/ww0\.e\-tp\.hosterfy\.fr\/" [R=301,L]
+RewriteRule ^/?$ "https\:\/\/ww0\.e\-tp\.hosterfy\.fr\/" [R=301,L]
+
+## http -> https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE
 
 
 RewriteEngine On
