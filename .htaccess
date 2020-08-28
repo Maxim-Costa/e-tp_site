@@ -8,6 +8,24 @@ RewriteEngine on
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
 
+## EXPIRES HEADER CACHING ##
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access 1 year"
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType image/svg "access 1 year"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType application/pdf "access 1 month"
+    ExpiresByType application/javascript "access 1 month"
+    ExpiresByType application/x-javascript "access 1 month"
+    ExpiresByType application/x-shockwave-flash "access 1 month"
+    ExpiresByType image/x-icon "access 1 year"
+    ExpiresDefault "access 2 days"
+</IfModule>
+## EXPIRES HEADER CACHING ##
+
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.
 # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
@@ -22,7 +40,7 @@ RewriteEngine on
    php_value session.gc_maxlifetime 1440
    php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
    php_value upload_max_filesize 2M
-   php_flag zlib.output_compression Off
+   php_flag zlib.output_compression On
 </IfModule>
 <IfModule lsapi_module>
    php_flag display_errors Off
@@ -34,7 +52,7 @@ RewriteEngine on
    php_value session.gc_maxlifetime 1440
    php_value session.save_path "/var/cpanel/php/sessions/ea-php74"
    php_value upload_max_filesize 2M
-   php_flag zlib.output_compression Off
+   php_flag zlib.output_compression On
 </IfModule>
 # END cPanel-generated php ini directives, do not edit
 
