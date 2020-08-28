@@ -34,7 +34,7 @@ if (Auth::check()) {
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/fonts/css/ionicons.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/dropzone.css">
