@@ -51,12 +51,5 @@ RewriteRule ^index.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 # if requested path is not a valid directory, continue rewrite
 RewriteCond %{REQUEST_FILENAME} !-d
-## http -> https
-RewriteCond %{HTTPS} off
-
 # if you have continue to here, respond with index.html
 RewriteRule . /index.php [L]
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE
-
-
-
