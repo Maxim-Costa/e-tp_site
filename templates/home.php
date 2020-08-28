@@ -96,7 +96,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                         <table class="table table-borderless">
                             <thead>
                             <tr>
-                                <th>Speudo</th>
+                                <th>Pseudo</th>
                                 <th>Rang</th>
                                 <th>Point</th>
                                 <th>projet rendu</th>
