@@ -53,3 +53,10 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # if you have continue to here, respond with index.html
 RewriteRule . /index.php [L]
+
+  ## no-www -> www
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE,QSA]
+  ## http -> https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE
