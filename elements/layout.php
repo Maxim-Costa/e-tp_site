@@ -37,7 +37,7 @@ if (Auth::check()) {
     <link rel="stylesheet" href="/assets/fonts/css/ionicons.min.css">
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assets/css/dropzone.css">
+    <link rel="stylesheet" href="/assets/css/dropzone.min.css">
 </head>
 
 <body>
@@ -129,7 +129,7 @@ if (Auth::check()) {
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/jquery.countdown.min.js"></script>
 <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/assets/js/Toasty.js"></script>
+<script src="/assets/js/Toasty.min.js"></script>
 <?= $pageJavascripts ?? '' ?>
 </body>
 

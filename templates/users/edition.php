@@ -192,7 +192,7 @@ if (!empty($_POST)) {
     </div>
 
 <?php ob_start(); ?>
-    <script src="/assets/js/dropzone.js"></script>
+    <script src="/assets/js/dropzone.min.js"></script>
     <script>
         $("#checkDiscordId").click(function () {
             $.ajax({
