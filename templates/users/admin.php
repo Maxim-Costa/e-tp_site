@@ -98,20 +98,6 @@ $posts = PostTable::Get($pdo, "");
     </div>
 </div>
 
-<div class="toast" style="position: absolute; top: 10px; right: 10px;z-index: 9999" id="ToastError" data-delay="2000">
-    <div class="toast-header">
-        <strong class="mr-auto">Error Update</strong>
-        <small>Now</small>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="toast-body">
-        Il y a eu une erreur : <span id="errorToast"></span>
-    </div>
-</div>
-
-
 <?php ob_start(); ?>
 <script type="text/javascript">
     $('.setToCor').click(function () {
