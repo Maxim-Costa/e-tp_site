@@ -16,8 +16,32 @@ $posts = PostTable::Get($pdo, $q);
 
 ?>
 
+<div class="row mt-5">
+    <div class="col-6" style="padding: 0px 0px;">
+        <form class="input-group mb-3" method="GET" action="" style="width: auto;">
+            <input
+                    name="q"
+                    type="text"
+                    class="form-control"
+                    placeholder="Chercher un utilisateur"
+                    aria-label="search"
+                    aria-describedby="basic-addon2"
+                    value="<?= $q ?>"
+            />
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary btn-light" type="submit">
+                    Chercher
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6">
+        <a class="btn btn-danger ml-2 form-control" style="width:85px;line-height: 30px;" href="<?= $router->generate('rank') ?>"><i class="fas fa-times"></i> reset</a>
+    </div>
+</div>
+
 <div
-        class="row mt-5"
+        class="row mt-2"
         style="
     border: 1px solid rgb(214, 214, 214);
     border-radius: 10px;
@@ -46,9 +70,9 @@ $posts = PostTable::Get($pdo, $q);
                 <?php foreach ($posts as $key => $post): ?>
                     <tr>
                         <td><?= $post->speudo_user ?></td>
-                        <td><?= $key + 1 ?>/<?= $post->all_user_count ?></td>
+                        <td><?= $post->rank ?>/<?= $post->count_user_all ?></td>
                         <td><?= $post->score_user ?></td>
-                        <td><?= $post->user_tp_count ?>/<?= $post->all_tp_count ?></td>
+                        <td><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
                         <td>
                             <div class="btn-group">
                                 <button
@@ -61,13 +85,17 @@ $posts = PostTable::Get($pdo, $q);
                                     View TP
                                 </button>
                                 <div class="dropdown-menu">
-                                    <?php foreach (explode(',', $post->tp_projet_row) as $tp_name): ?>
-                                        <a
-                                                class="dropdown-item"
-                                                href="http://user.e-tp.hosterfy.fr/<?= strtolower($post->speudo_user) ?>/<?= strtolower($tp_name) ?>">
-                                            <?= $tp_name ?>
-                                        </a>
-                                    <?php endforeach ?>
+                                    <?php if ($post->all_tp_name !== null): ?>
+                                        <?php foreach (explode(',', $post->all_tp_name) as $key => $tp_name): ?>
+                                            <a
+                                                    class="dropdown-item"
+                                                    href="<?= explode('$1447$', $post->all_tp_link)[$key] ?>">
+                                                <?= $tp_name ?>
+                                            </a>
+                                        <?php endforeach ?>
+                                    <?php else: ?>
+
+                                    <?php endif ?>
                                 </div>
                             </div>
                         </td>

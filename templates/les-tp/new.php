@@ -27,6 +27,12 @@ $pageTitle = 'new tp';
             </div>
             <div class="form-group form-inline mt-4">
                 <input type="number" class="form-control" name="nbJ" id="nbJ" placeholder="nombres de jours">
+                <select class="custom-select ml-4 form-control" id="typeProject" required>
+                    <option selected>Choose...</option>
+                    <option value="0">Web</option>
+                    <option value="1">Algo</option>
+                    <option value="100">Others</option>
+                </select>
                 <button type="submit" class="btn btn-primary ml-4 mr-4" id="subPost">Submit</button>
             </div>
             <div id="output2"></div>
@@ -48,11 +54,12 @@ $pageTitle = 'new tp';
             data: {
                 title: $('#title').val(),
                 time: $('#nbJ').val(),
-                content: $('#markdown').val()
+                content: $('#markdown').val(),
+                typeProject: $('#typeProject').val()
             }
         }).done(function( msg ) {
             if (msg !== "true") {
-                $('#output2').html('<div class="alert alert-danger" role="alert"> je champs '+msg+' est mal remplie </div>');
+                $('#output2').html('<div class="alert alert-danger" role="alert">'+msg+'</div>');
             } else {
                 $('#output2').html('<div class="alert alert-success" role="alert"> Tout est bon :) </div>');
                 $('#title').val("");

@@ -8,6 +8,7 @@ $uri = $_SERVER['REQUEST_URI'];
 
 $router = new AltoRouter();
 $router->map('GET',         '/',                        'home',                     'home');
+$router->map('GET',         '/rank',                    'users/rank',               'rank');
 
 $router->map('GET|POST',    '/admin',                   'users/admin',              'admin');
 $router->map('POST',        '/admin/remove/[i:id]',     'users/remove',             'remove_account');
@@ -46,7 +47,7 @@ if (is_array($match)) {
                 exit();
             }
         } catch (ForbiddenException $e) {
-            header('Location: '.$router->generate('home'));
+            header('Location: '.$router->generate('e404'));
             exit();
         }
     }

@@ -38,7 +38,7 @@ class PostTable
     public static function UpdateUser(PDO $pdo, int $id, string $email, string $pseudo, int $discord, string $password)
     {
         $query = $pdo->prepare("UPDATE user_etphoste set email_user = :email, speudo_user = :pseudo, discord_user = :discord, password_user = :password where id_user = :id;");
-        $ok = $query->execute(array('id' => $id, 'email' => $email, 'pseudo' => $pseudo, 'discord' => $discord, 'password' => $password));
+        $ok = $query->execute(array('id' => $id, 'email' => strtolower($email), 'pseudo' => $pseudo, 'discord' => $discord, 'password' => $password));
         if ($ok === false) {
             throw new \Exception("Impossible d'éditer la valeur 1");
         }
@@ -104,7 +104,7 @@ class PostTable
 
     public static function Add(PDO $pdo, array $data): void
     {
-        $query = $pdo->prepare("INSERT INTO projet_etphoste (tp_projet,date_final_projet,date_start_projet,desc_projet) VALUES (:title,:time_stop,:time_start,:containt)");
+        $query = $pdo->prepare("INSERT INTO projet_etphoste (tp_projet,date_final_projet,date_start_projet,desc_projet,type_projet) VALUES (:title,:time_stop,:time_start,:containt,:type_projet)");
         $ok = $query->execute($data);
         if ($ok === false) {
             throw new \Exception("Impossible d'ajouté les valeurs");
@@ -114,7 +114,7 @@ class PostTable
     public static function findByEmail(PDO $pdo, string $email)
     {
         $query = $pdo->prepare("SELECT id_user,email_user,speudo_user,password_user,role_user FROM etphoste_client.user_etphoste where email_user = :email");
-        $query->execute(array('email' => $email));
+        $query->execute(array('email' => strtolower($email)));
         $query->setFetchMode(PDO::FETCH_OBJ);
         $posts = $query->fetch();
 
@@ -138,7 +138,7 @@ class PostTable
     public static function NewUser(PDO $pdo, string $email, string $password, string $pseudo)
     {
         $query = $pdo->prepare("INSERT INTO `user_etphoste`( `email_user`, `password_user`, `speudo_user` ) VALUES( :email, :password, :pseudo )");
-        $ok = $query->execute(array('email' => $email, 'password' => $password, 'pseudo' => $pseudo));
+        $ok = $query->execute(array('email' => strtolower($email), 'password' => $password, 'pseudo' => $pseudo));
         return $ok;
     }
 

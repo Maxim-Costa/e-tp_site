@@ -58,7 +58,7 @@ if (Auth::check()) {
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" href="https://discord.gg/wFyJNxx">Discord</a></li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" href="https://discord.gg/wFyJNxx">Classement</a></li>
+                    <a class="nav-link" href="<?= $router->generate('rank') ?>">Classement</a></li>
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Les Tp</a>
                     <div class="dropdown-menu" role="menu">
@@ -108,6 +108,7 @@ if (Auth::check()) {
                                     <?php endforeach ?>
                                 <?php endif ?>
                                 <div class="dropdown-divider"></div>
+                                <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('admin') . '"> Admin&nbsp; <i class="fas fa-toolbox"></i></a>') ?>
                                 <a class="dropdown-item" href="<?= $router->generate('account_edite') ?>">
                                     éditer&nbsp;
                                     <i class="fas fa-users-cog"></i></a>

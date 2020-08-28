@@ -1,8 +1,8 @@
 <?php
 
+use App\Auth;
 use App\Connection;
 use App\PostTable;
-use App\Auth;
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -10,14 +10,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $pageTitle = 'Home';
 
-if ($_GET['q'] === null) {
-    $q = "";
-} else {
-    $q = htmlentities($_GET['q']);
-}
 
 $pdo = Connection::getPDO();
-$posts = PostTable::GetLimit($pdo, $q, 5);
+$posts = PostTable::GetLimit($pdo, "", 5);
 $timeStop = PostTable::GetLastDate($pdo);
 
 ?>
@@ -57,7 +52,7 @@ $timeStop = PostTable::GetLastDate($pdo);
             </div>
             <div class="row">
                 <div class="col" style="padding: 0px 0px;">
-                    <form class="input-group mb-3" method="GET" action="" style="width: auto;">
+                    <form class="input-group mb-3" method="GET" action="rank" style="width: auto;">
                         <input
                                 name="q"
                                 type="text"
@@ -65,7 +60,6 @@ $timeStop = PostTable::GetLastDate($pdo);
                                 placeholder="Chercher un utilisateur"
                                 aria-label="search"
                                 aria-describedby="basic-addon2"
-                                value="<?= $q ?>"
                         />
                         <div class="input-group-append">
                             <button class="btn btn-outline-primary btn-light" type="submit">
@@ -95,7 +89,9 @@ $timeStop = PostTable::GetLastDate($pdo);
         background-color: white;
       "
             >
+                <span class="badge badge-primary" style="border-radius: 0px;">Top 5 :</span>
                 <div class="col-md-12 text-center">
+
                     <div class="table-responsive">
                         <table class="table table-borderless">
                             <thead>
@@ -169,12 +165,18 @@ $timeStop = PostTable::GetLastDate($pdo);
                     </button>
                 </div>
                 <div class="modal-body">
-                    <?= Auth::checkIO('<input name="link" type="link" class="form-control mt-2" id="linkTp" placeholder="Lien vers le code source" required>', '<span>Vous devez être connecter pour uploader un tp : <a href="' . $router->generate('login') . '">se connecter</a></span>') ?>
-
+                    <?php if (empty($timeStop)): ?>
+                        <span>Il n'y a pas de tp en cours :)</span>
+                    <?php else: ?>
+                        <?= Auth::checkIO('<input name="link" type="link" class="form-control mt-2" id="linkTp" placeholder="Lien vers le code source" required>', '<span>Vous devez être connecter pour uploader un tp : <a href="' . $router->generate('login') . '">se connecter</a></span>') ?>
+                    <?php endif; ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <?= Auth::checkIO('<button type="button" class="btn btn-primary" id="UploadTPUser" keyTp="' . $timeStop[0]->id_projet . '" keyId="' . $_SESSION['auth'] . '">Upload</button>') ?>
+                    <?php if (!empty($timeStop)): ?>
+                        <?= Auth::checkIO('<button type="button" class="btn btn-primary" id="UploadTPUser" keyTp="' . $timeStop[0]->id_projet . '" keyId="' . $_SESSION['auth'] . '">Upload</button>') ?>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>
