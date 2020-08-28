@@ -1,5 +1,7 @@
 <?php
 
+ob_start("ob_gzhandler");
+
 require '../vendor/autoload.php';
 
 use App\Security\ForbiddenException;
@@ -56,3 +58,5 @@ if (is_array($match)) {
     header('Location: '.$router->generate('e404'));
     exit();
 }
+
+ob_end_flush();
