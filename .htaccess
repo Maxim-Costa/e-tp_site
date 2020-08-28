@@ -39,7 +39,8 @@ RewriteEngine on
 # END cPanel-generated php ini directives, do not edit
 
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|gif|svg|js|css|swf)$">
-Header set Cache-Control "max-age=84600, public"
+    Header set Cache-Control "max-age=84600, public"
+</filesMatch>
 
 RewriteCond %{HTTP_HOST} ^e\-tp\.hosterfy\.fr$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.e\-tp\.hosterfy\.fr$
