@@ -27,7 +27,7 @@ $posts = PostTable::Get($pdo, "");
             <table class="table table-borderless text-center">
                 <thead>
                 <tr>
-                    <th>Speudo
+                    <th>Pseudo
                     </th>
                     <th>Point
                     </th>
