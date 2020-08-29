@@ -168,7 +168,8 @@ $timeStop = PostTable::GetLastDate($pdo);
                 <div class="modal-body ">
                     <?= Auth::checkIO('<div class="bodyTPview"> </div> ', '<span>Vous devez être connecter pour uploader un tp : <a href="' . $router->generate('login') . '">se connecter</a></span>') ?>
                 </div>
-                <a class="forgot ml-3" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">*N.C : Non corrigé, !! Les tp rendu après la date, ont une légère pénalité d'environ 1 point !!</a>
+                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">N.C : Non corrigé</a>
+                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">!! Les tp rendu après la date, ont une légère pénalité d'environ 1 point !!</a>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
