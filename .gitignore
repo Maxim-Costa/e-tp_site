@@ -2,3 +2,4 @@
 .vscode/
 
 .prettierrc
+src/Connection.php
