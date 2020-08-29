@@ -20,7 +20,7 @@ if (!empty($_POST)) {
                     echo "true";
                 } catch (Exception $e) {
                     if (strpos($e,"Duplicate entry")) {
-                        echo "Vous avez déjà upload le tp contacter le support pour faire une demande";
+                        echo "Vous avez déjà upload le tp contacter le support pour faire une demande reactualiser votre page";
                     } else {
                         echo "Une erreur lors de l'upload";
                     }

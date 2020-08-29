@@ -11,7 +11,7 @@ if (!empty($_POST['id'])) {
     if (ctype_digit($_POST['id'])) {
         $id = (int)$_POST['id'];
         try {
-            $UserInfo = PostTable::GetTpUserById($pdo, $id);
+            $UserInfo = PostTable::GetTpUserById_AllTp($pdo, $id);
             echo json_encode($UserInfo, 3);
         } catch (Exception $e) {
             echo "une erreur est survenue Please see error";
