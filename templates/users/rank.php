@@ -61,6 +61,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
     "
         id="table_mensuel"
 >
+    <span class="badge badge-primary" style="border-radius: 0px;">Classement Mensuel :</span>
     <div class="col-md-12 text-center">
         <div class="table-responsive">
             <table class="table table-borderless">
@@ -130,6 +131,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
     "
             id="table_global"
     >
+        <span class="badge badge-primary" style="border-radius: 0px;">Classement Global :</span>
         <div class="col-md-12 text-center">
             <div class="table-responsive">
                 <table class="table table-borderless">
