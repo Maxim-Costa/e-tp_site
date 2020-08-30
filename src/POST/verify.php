@@ -93,7 +93,7 @@ class verify
                 if ($this->post['discord'] === $this->userInfo->discord_user) {
 
                 } elseif ($answer === false) {
-                    $response = file_get_contents('http://103.best:5005/api/v4/dicsord/getUser?id=' . $this->post[$type]);
+                    $response = file_get_contents('https://api.e-tp.hosterfy.fr/discord?id=' . $this->post[$type]);
                     $response = json_decode($response);
                     if ($response->code !== 10013 && $response->error !== "you need id params") {
                         if (!$response->bot) {
