@@ -196,7 +196,7 @@ if (!empty($_POST)) {
     <script>
         $("#checkDiscordId").click(function () {
             $.ajax({
-                url: "http://103.best:5005/api/v4/dicsord/getUser",
+                url: "https://api.e-tp.hosterfy.fr/discord",
                 type: 'GET',
                 data: {
                     id: $("#Discord_id_input").val(),
