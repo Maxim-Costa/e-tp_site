@@ -10,6 +10,7 @@ $uri = $_SERVER['REQUEST_URI'];
 $router = new AltoRouter();
 $router->map('GET',         '/',                        'home',                     'home');
 $router->map('GET',         '/rank',                    'users/rank',               'rank');
+$router->map('GET',         '/info/[i:id]',             'users/info',               'info');
 
 $router->map('GET|POST',    '/admin',                   'users/admin',              'admin');
 $router->map('POST',        '/admin/remove/[i:id]',     'users/remove',             'remove_account');

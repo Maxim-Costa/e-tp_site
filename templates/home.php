@@ -94,7 +94,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                 <div class="col-md-12 text-center">
 
                     <div class="table-responsive">
-                        <table class="table table-borderless">
+                        <table class="table table-borderless table-hover">
                             <thead>
                             <tr>
                                 <th>Pseudo</th>
@@ -112,7 +112,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                             <tbody>
 
                             <?php foreach ($posts as $key => $post): ?>
-                                <tr>
+                                <tr onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'>
                                     <td><?= $post->speudo_user ?></td>
                                     <td><?= $post->rank ?>/<?= $post->count_user_all ?></td>
                                     <td><?= $post->score_user ?></td>
@@ -168,8 +168,10 @@ $timeStop = PostTable::GetLastDate($pdo);
                 <div class="modal-body ">
                     <?= Auth::checkIO('<div class="bodyTPview"> </div> ', '<span>Vous devez être connecter pour uploader un tp : <a href="' . $router->generate('login') . '">se connecter</a></span>') ?>
                 </div>
-                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">N.C : Non corrigé</a>
-                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">!! Les tp rendu après la date, ont une légère pénalité d'environ 1 point !!</a>
+                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">N.C
+                    : Non corrigé</a>
+                <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">!!
+                    Les tp rendu après la date, ont une légère pénalité d'environ 1 point !!</a>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>

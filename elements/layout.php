@@ -95,7 +95,7 @@ if (Auth::check()) {
                                 >
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <h6 class="dropdown-header">Mes Infos</h6>
+                                <a class="dropdown-header h6" href="<?= $router->generate('info',array('id'=>$_SESSION['auth'])) ?>">Mes Infos</a>
                                 <a class="dropdown-item disabled" href="#"><?= $UserTps->speudo_user ?></a>
                                 <a class="dropdown-item disabled" href="#">score : <?= $UserTps->score_user ?? 0 ?></a>
                                 <h6 class="dropdown-header">Mes TP</h6>
