@@ -16,12 +16,23 @@ if (!empty($_POST)) {
             if (ctype_digit($_POST['score'])) {
                 $score = (int)$_POST['score'];
 
-                try {
-                    PostTable::Correction($pdo, $id, $idTp, $score);
-                    echo "true";
-                } catch (Exception $e) {
-                    echo $e;
+                $ok = PostTable::SetScoreIsOk($pdo,$id,$idTp);
+                if ($ok === 1) {
+                    try {
+                        PostTable::CorrectionGlobal($pdo, $id, $idTp, $score);
+                        echo "true";
+                    } catch (Exception $e) {
+                        echo $e;
+                    }
+                } else {
+                    try {
+                        PostTable::Correction($pdo, $id, $idTp, $score);
+                        echo "true";
+                    } catch (Exception $e) {
+                        echo $e;
+                    }
                 }
+
 
             } else {
                 echo "le score n'est pas un float";

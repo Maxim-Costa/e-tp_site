@@ -136,7 +136,7 @@ if ($userInfo) {
 
         let score = "<?php foreach ($history as $h) {
             echo $h->score . ",";
-        } echo $userInfo->score_user;?>";
+        } echo $userInfo->score_global_user;?>";
         score = score.split(',')
 
         let ctx = document.getElementById('myChart').getContext('2d');
@@ -148,7 +148,7 @@ if ($userInfo) {
             data: {
                 labels: date,
                 datasets: [{
-                    label: 'Score',
+                    label: 'Historique du Score Global',
                     backgroundColor: 'rgb(255, 255, 255, 0)',
                     borderColor: 'rgb(255, 99, 132)',
                     data: score
