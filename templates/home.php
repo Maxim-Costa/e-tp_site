@@ -50,7 +50,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                 </div>
                 <div class="col"></div>
             </div>
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col" style="padding: 0px 0px;">
                     <form class="input-group mb-3" method="GET" action="rank" style="width: auto;">
                         <input
