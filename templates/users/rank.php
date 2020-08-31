@@ -16,7 +16,7 @@ $posts_menseul = PostTable::Get($pdo, $q);
 $posts_global = PostTable::GetSortGlobal($pdo, $q);
 ?>
 
-    <div class="row mt-5 mb-5">
+    <div class="row mt-5">
         <div class="col-6" style="padding: 0px 0px;">
             <form class="input-group mb-3" method="GET" action="" style="width: auto;">
                 <input
@@ -53,7 +53,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
     </div>
 
     <div
-            class="row mt-2"
+            class="row mt-2 mb-5"
             style="
     border: 1px solid rgb(214, 214, 214);
     border-radius: 10px;
