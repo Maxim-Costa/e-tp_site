@@ -252,7 +252,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                 <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">N.C
                     : Non corrigé</a>
                 <a class="forgot ml-1" style="font-size: 12px; color: #6f7a85; opacity: .9; text-decoration: none;">!!
-                    Les tp rendu après la date, ont une légère pénalité d'environ 1 point !!</a>
+                    Les tp rendu après la date, ne compte pas dans le classement Mensuel !!</a>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
