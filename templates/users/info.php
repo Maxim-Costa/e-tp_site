@@ -41,32 +41,34 @@ if ($userInfo) {
                 <div class="row">
                     <div class="col-6">
                         <br/>
-                        <div><span style="font-size: 1.2rem;">Pseudo : </span><span
-                                    style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->speudo_user ?></span>
+                        <div><span style="font-size: 1.2rem;">Pseudo : </span>
+                            <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->speudo_user ?></span>
                         </div>
                         <br/>
-                        <div><span style="font-size: 1.2rem;">Tp rendus : </span><span
-                                    style="font-weight: bold;font-size: 1.2rem;"><?= count($userInfo->all_tp_name) ?></span>
+                        <div><span style="font-size: 1.2rem;">Tp rendus : </span>
+                            <span style="font-weight: bold;font-size: 1.2rem;"><?= count($userInfo->all_tp_name) ?></span>
                         </div>
                         <br/>
-                        <div><span style="font-size: 1.2rem;">Score du mois : </span><span
-                                    style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->score_user ?></span>
+                        <div><span style="font-size: 1.2rem;">Score du mois : </span>
+                            <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->score_user ?></span>
                         </div>
                         <br/>
-                        <div><span style="font-size: 1.2rem;">Score Global : </span><span
-                                    style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->score_global_user ?></span>
+                        <div><span style="font-size: 1.2rem;">Score Global : </span>
+                            <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->score_global_user ?></span>
                         </div>
 
                         <?php if ($userInfo->discord_user): ?>
                             <br/>
-                            <div><span style="font-size: 1.2rem;">Discord : </span><span
-                                        style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->discord_user->username ?>#<?= $userInfo->discord_user->discriminator ?></span>
+                            <div>
+                                <span style="font-size: 1.2rem;">Discord : </span>
+                                <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->discord_user->username ?>#<?= $userInfo->discord_user->discriminator ?></span>
                             </div>
                         <?php endif; ?>
                         <br/>
-                        <div><span style="font-size: 1.2rem;">Git : </span><a
-                                    style="font-weight: bold;font-size: 1.2rem;"
-                                    href="<?= $userInfo->git_user ?>">View</a></div>
+                        <div>
+                            <span style="font-size: 1.2rem;">Git : </span>
+                            <a style="font-weight: bold;font-size: 1.2rem;" href="<?= $userInfo->git_user ?>">View</a>
+                        </div>
                         <br/>
                     </div>
                     <div class="col-6 text-center align-self-center">
