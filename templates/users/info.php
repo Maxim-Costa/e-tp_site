@@ -39,7 +39,7 @@ if ($userInfo) {
         <div class="card-body">
             <?php if ($userInfo !== false): ?>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-6 align-self-center">
                         <br/>
                         <div><span style="font-size: 1.2rem;">Pseudo : </span>
                             <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->speudo_user ?></span>
