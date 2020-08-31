@@ -83,10 +83,10 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
 
                     <?php foreach ($posts_menseul as $key => $post): ?>
                         <tr onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'>
-                            <td><?= $post->speudo_user ?></td>
-                            <td><?= $post->rank_global ?>/<?= $post->count_user_all ?></td>
-                            <td><?= $post->score_user ?></td>
-                            <td><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->rank_global ?>/<?= $post->count_user_all ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
                             <td>
                                 <div class="btn-group">
                                     <button
