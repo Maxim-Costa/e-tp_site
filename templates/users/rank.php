@@ -154,7 +154,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                     <?php foreach ($posts_global as $key => $post): ?>
                         <tr>
                             <td><?= $post->speudo_user ?></td>
-                            <td><?= $post->rank ?>/<?= $post->count_user_all ?></td>
+                            <td><?= $post->rank_global ?>/<?= $post->count_user_all ?></td>
                             <td><?= $post->score_global_user ?></td>
                             <td><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
                             <td>
