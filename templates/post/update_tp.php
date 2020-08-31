@@ -18,7 +18,6 @@ if (!empty($_POST)) {
                 if ($_POST['typeProject'] !== '' && ctype_digit($_POST['typeProject'])) {
                     $content = $_POST['content'];
 
-                    $content = $Parsedown->text($content);
                     $content = base64_encode($content);
 
                     $time_start = PostTable::GetLastDateAll($pdo);

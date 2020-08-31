@@ -38,6 +38,7 @@ if (Auth::check()) {
     <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/dropzone.min.css">
+    <?= $pageCss ?? "" ?>
 </head>
 
 <body>

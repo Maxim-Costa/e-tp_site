@@ -8,6 +8,9 @@ $pdo = Connection::getPDO();
 $query = $pdo->query('select * from etphoste_client.projet_etphoste where projet_etphoste.id_projet ='.$tp_id.';');
 $posts = $query->fetchAll(PDO::FETCH_OBJ)[0];
 
+$pageCss = '<style>pre {background: #eee;margin-bottom: 10px;}</style>';
+
+
 ?>
 <div class="card mt-5">
     <div class="card-body text-left">
