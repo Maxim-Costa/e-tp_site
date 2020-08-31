@@ -190,7 +190,6 @@ $timeStop = PostTable::GetLastDate($pdo);
                             </tr>
                             </thead>
                             <tbody>
-
                             <?php foreach ($posts_global as $key => $post): ?>
                                 <tr>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
