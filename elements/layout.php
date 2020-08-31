@@ -68,7 +68,7 @@ if (Auth::check()) {
                         <hr style="margin: 0 15px 0 15px;"/>
                         <?php foreach ($tp_querys as $tp_query): ?>
                             <a class="dropdown-item" role="presentation"
-                               href="<?= $router->generate('tp', array('tp' => strtolower($tp_query->tp_projet), 'id' => $tp_query->id_projet)) ?>"><?= $tp_query->tp_projet ?></a>
+                               href="<?= $router->generate('tp', array('tp' => str_replace(" ","-",strtolower($tp_query->tp_projet)), 'id' => $tp_query->id_projet)) ?>"><?= $tp_query->tp_projet ?></a>
                         <?php endforeach ?>
                     </div>
                 </li>

@@ -57,7 +57,7 @@ if ($asAdmin) {
                 <td><?= $tp_query->date_start_projet ?></td>
                 <td><?= $tp_query->date_final_projet ?></td>
                 <?= Auth::Admin("<td><a class=\"btn btn-warning\" >éditer</a></td>") ?>
-                <td><a href="<?= $router->generate('tp', array('tp'=>strtolower($tp_query->tp_projet),'id'=>$tp_query->id_projet)) ?>" class="btn btn-primary">Go</a></td>
+                <td><a href="<?= $router->generate('tp', array('tp'=>str_replace(" ","-",strtolower($tp_query->tp_projet)),'id'=>$tp_query->id_projet)) ?>" class="btn btn-primary">Go</a></td>
             </tr>
             <?php endforeach ?>
         </tbody>
