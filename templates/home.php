@@ -262,7 +262,6 @@ $timeStop = PostTable::GetLastDate($pdo);
 
 
 <?php ob_start(); ?>
-<?php if (Auth::check()): ?>
     <script type="text/javascript">
         $('#customSwitches').change(function () {
             if ($(this).prop('checked')) {
@@ -274,6 +273,7 @@ $timeStop = PostTable::GetLastDate($pdo);
             }
         })
     </script>
+<?php if (Auth::check()): ?>
     <script>
         $(".ModalTPVIEW").click(function () {
             $('#CurrentIDSELECT').text(" ");
