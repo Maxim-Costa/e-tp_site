@@ -27,6 +27,8 @@ $posts = PostTable::Get($pdo, "");
             <table class="table table-borderless text-center">
                 <thead>
                 <tr>
+                    <th>#
+                    </th>
                     <th>Pseudo
                     </th>
                     <th>Point
@@ -39,7 +41,7 @@ $posts = PostTable::Get($pdo, "");
                     </th>
                 </tr>
                 <tr>
-                    <td colspan="7" style="padding: 1px 1px;">
+                    <td colspan="6" style="padding: 1px 1px;">
                         <hr style="margin: 0 2.5em;"/>
                     </td>
                 </tr>
@@ -47,6 +49,15 @@ $posts = PostTable::Get($pdo, "");
                 <tbody>
                 <?php foreach ($posts as $key => $post): ?>
                     <tr>
+                        <td>
+                            <?php if (in_array('1', explode(',', $post->all_tp_correct))): ?>
+                                <img src="/assets/svg/delete.svg" height="30px"
+                                     onerror="this.onerror=null; this.src='/assets/img/delete.png'">
+                            <?php else: ?>
+                                <img src="/assets/svg/checkmark.svg" height="30px"
+                                     onerror="this.onerror=null; this.src='/assets/img/checkmark.png'">
+                            <?php endif; ?>
+                        </td>
                         <td>
                             <?= $post->speudo_user ?>
                         </td>
