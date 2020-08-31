@@ -42,7 +42,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                 <i class="fas fa-times"></i> reset
             </a>
         </div>
-        <div class="col-3 align-self-center text-right">
+        <div class="col-12">
             <!-- Default switch -->
             <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="customSwitches">
