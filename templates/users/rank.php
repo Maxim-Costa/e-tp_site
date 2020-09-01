@@ -8,7 +8,7 @@ $pageTitle = 'Classement';
 if ($_GET['q'] === null) {
     $q = "";
 } else {
-    $q = htmlentities($_GET['q']);
+    $q = $_GET['q'];
 }
 
 $pdo = Connection::getPDO();

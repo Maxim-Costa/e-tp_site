@@ -22,12 +22,6 @@ if ($userInfo) {
     $userInfo->all_tp_id = explode(',', $userInfo->all_tp_id);
     $userInfo->all_tp_name = explode(',', $userInfo->all_tp_name);
     $userInfo->all_tp_link = explode('$1447$', $userInfo->all_tp_link);
-
-    if ($userInfo->discord_user) {
-        $response = file_get_contents('https://api.e-tp.hosterfy.fr/discord?id=' . $userInfo->discord_user);
-        $userInfo->discord_user = json_decode($response);
-    }
-
 } else {
     $userInfo = false;
     $pageTitle = "Non trouvé";
@@ -61,7 +55,7 @@ if ($userInfo) {
                             <br/>
                             <div>
                                 <span style="font-size: 1.2rem;">Discord : </span>
-                                <span style="font-weight: bold;font-size: 1.2rem;"><?= $userInfo->discord_user->username ?>#<?= $userInfo->discord_user->discriminator ?></span>
+                                <span style="font-weight: bold;font-size: 1.2rem;" id="discordPseudo">Loading ...</span>
                             </div>
                         <?php endif; ?>
                         <br/>
@@ -78,7 +72,7 @@ if ($userInfo) {
                             echo "avatar.png";
                         } ?>"
                              alt=""
-                             style="object-fit: scale-down;max-width: 330px;max-height: 330px;width: inherit;box-shadow: 0px 0px 12px 5px #cacaca;"
+                             style="object-fit: scale-down;max-width: 330px;max-height: 330px;width: inherit;box-shadow: 0 0 12px 5px #cacaca;"
                         >
                     </div>
                 </div>
@@ -110,9 +104,13 @@ if ($userInfo) {
                                                 echo $userInfo->all_tp_note[$key];
                                             } else {
                                                 echo "Non corrigé";
-                                            } ?></td>
-                                        <td><a href="<?= $userInfo->all_tp_link[$key] ?>" class="btn btn-primary"><i
-                                                        class="fas fa-eye"></i></a></td>
+                                            } ?>
+                                        </td>
+                                        <td>
+                                            <a href="<?= $userInfo->all_tp_link[$key] ?>" class="btn btn-primary">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                                 </tbody>
@@ -128,6 +126,18 @@ if ($userInfo) {
 
 <?php ob_start(); ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+
+        $.ajax({
+            url: "https://api.e-tp.hosterfy.fr/discord",
+            type: 'GET',
+            data: {
+                id: "<?= $userInfo->discord_user?>",
+            }
+        }).done(function (response) {
+            $('#discordPseudo').text(response.username + "#" + response.discriminator);
+        });
+    </script>
     <script>
         let date = "<?php foreach ($history as $h) {
             echo $h->_date . ",";
