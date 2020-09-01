@@ -52,7 +52,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                 <div class="col"></div>
             </div>
             <div class="row">
-                <div class="col" style="padding: 0px 0px;">
+                <div class="col" style="padding: 0 0;">
                     <form class="input-group mb-3" method="GET" action="rank" style="width: auto;">
                         <input
                                 name="q"
@@ -69,7 +69,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                         </div>
                     </form>
                 </div>
-                <div class="col" style="padding: 0px 0px;">
+                <div class="col" style="padding: 0 0;">
                     <div class="right-flex">
                         <button
                                 type="button"
@@ -98,7 +98,7 @@ $timeStop = PostTable::GetLastDate($pdo);
       "
                     id="table_mensuel"
             >
-                <span class="badge badge-primary" style="border-radius: 0px;">Top 5 :</span>
+                <span class="badge badge-primary" style="border-radius: 0;">Top 5 :</span>
                 <div class="col-md-12 text-center">
 
                     <div class="table-responsive">
