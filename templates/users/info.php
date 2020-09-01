@@ -78,7 +78,7 @@ if ($userInfo) {
                             echo "avatar.png";
                         } ?>"
                              alt=""
-                             style="object-fit: scale-down;max-width: 330px;max-height: 330px;width: inherit;"
+                             style="object-fit: scale-down;max-width: 330px;max-height: 330px;width: inherit;box-shadow: 0px 0px 12px 5px #cacaca;"
                         >
                     </div>
                 </div>
