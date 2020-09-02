@@ -135,7 +135,7 @@ $posts = PostTable::Get($pdo, "");
             type: "POST",
             url: "view_TP_JSON",
             data: {
-                id: $(this).attr('keyId'),
+                id: $(this).attr('keyId')
             }
         }).done(function (msg) {
             if (!msg.includes("Please see error")) {
