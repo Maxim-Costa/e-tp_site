@@ -45,7 +45,7 @@ if (!empty($_POST)) {
 $form = new Form($post, $error);
 
 ?>
-<div style="text-align: -webkit-center;">
+<div class="d-flex justify-content-center">
     <div class="card mt-5" style="max-width: 320px;width: 90%;padding: 40px;border-radius: 10px">
         <div class="card-body text-left">
             <div style="height: 120px; display: flex; align-items: center; justify-content: center;font-size: 100px;">
