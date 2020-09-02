@@ -105,8 +105,8 @@ $timeStop = PostTable::GetLastDate($pdo);
                         <table class="table table-borderless table-hover">
                             <thead>
                             <tr>
+                                <th scope="row">Rang</th>
                                 <th>Pseudo</th>
-                                <th>Rang</th>
                                 <th>Point</th>
                                 <th>projet rendu</th>
                                 <th>View TP</th>
@@ -121,9 +121,9 @@ $timeStop = PostTable::GetLastDate($pdo);
 
                             <?php foreach ($posts as $key => $post): ?>
                                 <tr>
+                                    <th onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                        scope="row" style="vertical-align: center!important;"><?= $post->rank ?></th>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
-                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->rank ?>
-                                        /<?= $post->count_user_all ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_user ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>
                                         /<?= $post->count_tp_all ?></td>
@@ -177,8 +177,8 @@ $timeStop = PostTable::GetLastDate($pdo);
                         <table class="table table-borderless table-hover">
                             <thead>
                             <tr>
-                                <th>Pseudo</th>
                                 <th>Rang</th>
+                                <th>Pseudo</th>
                                 <th>Point</th>
                                 <th>projet rendu</th>
                                 <th>View TP</th>
@@ -192,9 +192,9 @@ $timeStop = PostTable::GetLastDate($pdo);
                             <tbody>
                             <?php foreach ($posts_global as $key => $post): ?>
                                 <tr>
+                                    <th onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                        scope="row" style="vertical-align: center!important;"><?= $post->rank_global ?></th>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
-                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->rank_global ?>
-                                        /<?= $post->count_user_all ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_global_user ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>
                                         /<?= $post->count_tp_all ?></td>

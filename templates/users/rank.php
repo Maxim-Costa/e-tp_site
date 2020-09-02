@@ -67,8 +67,8 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                 <table class="table table-borderless table-hover">
                     <thead>
                     <tr>
-                        <th>Pseudo</th>
                         <th>Rang</th>
+                        <th>Pseudo</th>
                         <th>Point</th>
                         <th>projet rendu</th>
                         <th>View TP</th>
@@ -82,11 +82,17 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                     <tbody>
 
                     <?php foreach ($posts_menseul as $key => $post): ?>
-                        <tr onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'>
-                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
-                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->rank_global ?>/<?= $post->count_user_all ?></td>
-                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_user ?></td>
-                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
+                        <tr onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                            style="vertical-align: center!important;">
+                            <th onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                scope="row" style="vertical-align: center!important;"><?= $post->rank ?></th>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                style="vertical-align: center!important;"><?= $post->speudo_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                style="vertical-align: center!important;"><?= $post->score_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                style="vertical-align: center!important;"><?= $post->tp_count ?>
+                                /<?= $post->count_tp_all ?></td>
                             <td>
                                 <div class="btn-group">
                                     <button
@@ -137,8 +143,8 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                 <table class="table table-borderless">
                     <thead>
                     <tr>
-                        <th>Pseudo</th>
                         <th>Rang</th>
+                        <th>Pseudo</th>
                         <th>Point</th>
                         <th>projet rendu</th>
                         <th>View TP</th>
@@ -153,10 +159,16 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
 
                     <?php foreach ($posts_global as $key => $post): ?>
                         <tr>
-                            <td><?= $post->speudo_user ?></td>
-                            <td><?= $post->rank_global ?>/<?= $post->count_user_all ?></td>
-                            <td><?= $post->score_global_user ?></td>
-                            <td><?= $post->tp_count ?>/<?= $post->count_tp_all ?></td>
+                            <th onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                scope="row" style="vertical-align: center!important;"><?= $post->rank_global ?></th>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                scope="row" style="vertical-align: center!important;"><?= $post->speudo_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                scope="row"
+                                style="vertical-align: center!important;"><?= $post->score_global_user ?></td>
+                            <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
+                                scope="row" style="vertical-align: center!important;"><?= $post->tp_count ?>
+                                /<?= $post->count_tp_all ?></td>
                             <td>
                                 <div class="btn-group">
                                     <button

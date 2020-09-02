@@ -17,11 +17,13 @@ $history = PostTable::GetUserHistory($pdo, $id);
 if ($userInfo) {
     $userInfo = $userInfo[0];
     $pageTitle = $userInfo->speudo_user;
-    $userInfo->all_tp_note = explode(',', $userInfo->all_tp_note);
-    $userInfo->all_tp_correct = explode(',', $userInfo->all_tp_correct);
-    $userInfo->all_tp_id = explode(',', $userInfo->all_tp_id);
-    $userInfo->all_tp_name = explode(',', $userInfo->all_tp_name);
-    $userInfo->all_tp_link = explode('$1447$', $userInfo->all_tp_link);
+    if ($userInfo->all_tp_id) {
+        $userInfo->all_tp_note = explode(',', $userInfo->all_tp_note);
+        $userInfo->all_tp_correct = explode(',', $userInfo->all_tp_correct);
+        $userInfo->all_tp_id = explode(',', $userInfo->all_tp_id);
+        $userInfo->all_tp_name = explode(',', $userInfo->all_tp_name);
+        $userInfo->all_tp_link = explode('$1447$', $userInfo->all_tp_link);
+    }
 } else {
     $userInfo = false;
     $pageTitle = "Non trouvé";
