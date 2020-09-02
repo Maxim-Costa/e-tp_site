@@ -69,7 +69,7 @@ $posts = PostTable::Get($pdo, "");
                         </td>
                         <td>
                             <button type="button" class="btn btn-primary ModalTPVIEW" data-toggle="modal"
-                                    data-target="#ModalTPVIEW" keyId="<?= $post->id_user ?>"
+                                    data-target="#ModalTPVIEW" keyid="<?= $post->id_user ?>"
                                     keyPseudo="<?= $post->speudo_user ?>">View TP
                             </button>
                         </td>
@@ -111,7 +111,7 @@ $posts = PostTable::Get($pdo, "");
 
 <?php ob_start(); ?>
 <script type="text/javascript">
-    $('.setToCor').click(function () {
+    /*$('.setToCor').click(function () {
         $.ajax({
             type: "POST",
             url: "set_corr",
@@ -125,17 +125,18 @@ $posts = PostTable::Get($pdo, "");
                 DisplayToast('Error Update', 'Il y a eu une erreur : ' + msg, 5000)
             }
         });
-    });
+    });*/
 
 
     $(".ModalTPVIEW").click(function () {
         $('#CurrentIDSELECT').text(" ");
         $('.bodyTPview').html(" ");
+
         $.ajax({
             type: "POST",
             url: "view_TP_JSON",
             data: {
-                id: $(this).attr('keyId')
+                id: $(this).attr('keyid')
             }
         }).done(function (msg) {
             if (!msg.includes("Please see error")) {

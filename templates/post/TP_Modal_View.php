@@ -12,7 +12,7 @@ $pdo = Connection::getPDO();
 
 if (!empty($_POST['id'])) {
     if (ctype_digit($_POST['id'])) {
-        if ($_POST['id'] === $_SESSION['auth']) {
+        if ($_POST['id'] === $_SESSION['auth'] || $_SESSION['role'] === '1') {
             $id = (int)$_POST['id'];
             try {
                 $UserInfo = PostTable::GetTpUserById_AllTp($pdo, $id);
