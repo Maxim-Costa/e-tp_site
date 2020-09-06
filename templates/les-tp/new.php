@@ -23,8 +23,8 @@ $pageTitle = 'new tp';
                 <input type="number" class="form-control" name="nbJ" id="nbJ" placeholder="nombres de jours">
                 <select class="custom-select ml-4 form-control" id="typeProject" required>
                     <option selected>Choose...</option>
-                    <option value="0">Web</option>
-                    <option value="1">Algo</option>
+                    <option value="1">Web</option>
+                    <option value="2">Algo</option>
                     <option value="100">Others</option>
                 </select>
                 <button type="submit" class="btn btn-primary ml-4 mr-4" id="subPost">Submit</button>

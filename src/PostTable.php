@@ -30,7 +30,7 @@ class PostTable
 
     public static function GetTpUserById_AllTp(PDO $pdo, int $id)
     { //TODO : Good
-        $query = $pdo->query("SELECT id_user, speudo_user, email_user, discord_user, git_user, score_user, score_global_user, GROUP_CONCAT(b.tp_projet) AS all_tp_name, GROUP_CONCAT(a.note) AS all_tp_note, GROUP_CONCAT(b.id_projet) AS all_tp_id, GROUP_CONCAT(a.corrected) AS all_tp_correct, GROUP_CONCAT(a.link SEPARATOR '$1447$') AS all_tp_link, COUNT(DISTINCT b.tp_projet) AS tp_count, (SELECT COUNT(DISTINCT d.id_user) FROM user_etphoste d ) AS count_user_all, (SELECT COUNT(DISTINCT c.id_projet) FROM projet_etphoste c WHERE date_start_projet < NOW()) AS count_tp_all, FIND_IN_SET( score_user,(SELECT GROUP_CONCAT(score_user ORDER BY score_user DESC ) FROM user_etphoste ) ) AS rank, FIND_IN_SET( score_global_user, ( SELECT GROUP_CONCAT( score_global_user ORDER BY score_global_user DESC ) FROM user_etphoste ) ) AS rank_global, (SELECT GROUP_CONCAT(DISTINCT e.id_projet ORDER BY e.id_projet DESC) FROM projet_etphoste e WHERE date_start_projet < NOW() ORDER BY id_projet DESC) AS AllTp_id, (SELECT GROUP_CONCAT(DISTINCT f.tp_projet ORDER BY f.id_projet DESC) FROM projet_etphoste f WHERE date_start_projet < NOW() ORDER BY id_projet DESC) AS AllTp_name FROM user_etphoste LEFT JOIN user_etphoste_has_projet_etphoste a ON a.user_id_user = user_etphoste.id_user LEFT JOIN projet_etphoste b ON b.id_projet = a.projet_id_projet WHERE id_user = " . $id . " GROUP BY id_user");
+        $query = $pdo->query("SELECT id_user, speudo_user, email_user, discord_user, git_user, score_user, score_global_user, points_projet, GROUP_CONCAT(b.tp_projet) AS all_tp_name, GROUP_CONCAT(a.note) AS all_tp_note, GROUP_CONCAT(b.id_projet) AS all_tp_id, GROUP_CONCAT(a.corrected) AS all_tp_correct, GROUP_CONCAT(a.link SEPARATOR '$1447$') AS all_tp_link, COUNT(DISTINCT b.tp_projet) AS tp_count, (SELECT COUNT(DISTINCT d.id_user) FROM user_etphoste d ) AS count_user_all, (SELECT COUNT(DISTINCT c.id_projet) FROM projet_etphoste c WHERE date_start_projet < NOW()) AS count_tp_all, FIND_IN_SET( score_user,(SELECT GROUP_CONCAT(score_user ORDER BY score_user DESC ) FROM user_etphoste ) ) AS rank, FIND_IN_SET( score_global_user, ( SELECT GROUP_CONCAT( score_global_user ORDER BY score_global_user DESC ) FROM user_etphoste ) ) AS rank_global, (SELECT GROUP_CONCAT(DISTINCT e.id_projet ORDER BY e.id_projet DESC) FROM projet_etphoste e WHERE date_start_projet < NOW() ORDER BY id_projet DESC) AS AllTp_id, (SELECT GROUP_CONCAT(DISTINCT f.tp_projet ORDER BY f.id_projet DESC) FROM projet_etphoste f WHERE date_start_projet < NOW() ORDER BY id_projet DESC) AS AllTp_name FROM user_etphoste LEFT JOIN user_etphoste_has_projet_etphoste a ON a.user_id_user = user_etphoste.id_user LEFT JOIN projet_etphoste b ON b.id_projet = a.projet_id_projet WHERE id_user = " . $id . " GROUP BY id_user");
         $tp = $query->fetchAll(PDO::FETCH_OBJ);
         return $tp;
     }
@@ -177,14 +177,21 @@ class PostTable
 
     public static function GetCurrentTp(PDO $pdo)
     { //TODO : Good
-        $query = $pdo->query("SELECT * from etphoste_client.projet_etphoste where date_start_projet<now() order by projet_etphoste.date_start_projet");
+        $query = $pdo->query("SELECT projet_etphoste.*, type_etphoste.name AS type_projet FROM etphoste_client.projet_etphoste, etphoste_client.type_etphoste WHERE type_etphoste.id_type = projet_etphoste.type_projet AND date_start_projet < NOW() ORDER BY projet_etphoste.date_start_projet");
         $tp_querys = $query->fetchAll(PDO::FETCH_OBJ);
         return $tp_querys;
     }
 
+    public static function GetTPIdUser(PDO $pdo, int $id)
+    {
+        $query = $pdo->query("SELECT GROUP_CONCAT(DISTINCT projet_id_projet) AS all_tp_id FROM user_etphoste LEFT JOIN user_etphoste_has_projet_etphoste a ON a.user_id_user = user_etphoste.id_user WHERE id_user = " . $id);
+        $tpID_querys = $query->fetchAll(PDO::FETCH_OBJ);
+        return $tpID_querys;
+    }
+
     public static function GetTp(PDO $pdo)
     { //TODO : Good
-        $query = $pdo->query("SELECT * from etphoste_client.projet_etphoste order by projet_etphoste.date_start_projet");
+        $query = $pdo->query("SELECT projet_etphoste.*, type_etphoste.name AS type_projet FROM etphoste_client.projet_etphoste, etphoste_client.type_etphoste WHERE type_etphoste.id_type = projet_etphoste.type_projet ORDER BY projet_etphoste.date_start_projet");
         $tp_querys = $query->fetchAll(PDO::FETCH_OBJ);
         return $tp_querys;
     }
