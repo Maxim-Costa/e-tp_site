@@ -60,8 +60,9 @@ if (isset($_SESSION['auth'])) {
                         <td><?= $key + 1 ?></td>
                         <td><?= $tp_query->tp_projet ?></td>
                         <td><?= $tp_query->type_projet ?></td>
-                        <td>
-                            <?php if (isset($_SESSION['auth'])): ?>
+
+                        <?php if (isset($_SESSION['auth'])): ?>
+                            <td>
                                 <?php if (!in_array((string)$tp_query->id_projet, explode(',', $tpID_querys->all_tp_id))): ?>
                                     <img src="/assets/svg/delete.svg" height="30px"
                                          onerror="this.onerror=null; this.src='/assets/img/delete.png'">
@@ -69,8 +70,9 @@ if (isset($_SESSION['auth'])) {
                                     <img src="/assets/svg/checkmark.svg" height="30px"
                                          onerror="this.onerror=null; this.src='/assets/img/checkmark.png'">
                                 <?php endif; ?>
-                            <?php endif; ?>
-                        </td>
+                            </td>
+                        <?php endif; ?>
+
                         <td><?= $tp_query->points_projet ?></td>
                         <td>
                             <?php
