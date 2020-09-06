@@ -54,13 +54,13 @@ if (Auth::check()) {
         </button>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item" role="presentation">
+                <li class="nav-item" role="presentation" style=" padding: 1rem 0; ">
                     <a class="nav-link" href="<?= $router->generate('home') ?>">Accueil<br></a></li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item" role="presentation" style=" padding: 1rem 0; ">
                     <a class="nav-link" href="https://discord.gg/wFyJNxx">Discord</a></li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item" role="presentation" style=" padding: 1rem 0; ">
                     <a class="nav-link" href="<?= $router->generate('rank') ?>">Classement</a></li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style=" padding: 1rem 0; ">
                     <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Les Tp</a>
                     <div class="dropdown-menu" role="menu">
                         <a class="dropdown-item text-center" role="presentation"
@@ -68,35 +68,40 @@ if (Auth::check()) {
                         <hr style="margin: 0 15px 0 15px;"/>
                         <?php foreach ($tp_querys as $tp_query): ?>
                             <a class="dropdown-item" role="presentation"
-                               href="<?= $router->generate('tp', array('tp' => str_replace(" ","-",strtolower($tp_query->tp_projet)), 'id' => $tp_query->id_projet)) ?>"><?= $tp_query->tp_projet ?></a>
+                               href="<?= $router->generate('tp', array('tp' => str_replace(" ", "-", strtolower($tp_query->tp_projet)), 'id' => $tp_query->id_projet)) ?>"><?= $tp_query->tp_projet ?></a>
                         <?php endforeach ?>
                     </div>
                 </li>
             </ul>
             <?php if (!Auth::check()): ?>
-                <span class="navbar-text actions">
+                <span class="navbar-text actions d-flex justify-content-center align-content-center" style="place-items: center;">
                         <a class="login" href="<?= $router->generate('login') ?>">Log In</a>
                         <a class="btn btn-light action-button" role="button" href="<?= $router->generate('register') ?>"
                            style="border-radius: 10px;">Sign Up</a>
                     </span>
             <?php else: ?>
-                <span class="actions">
-                        <div class="dropdown">
-                            <button class="border-0 bg-transparent btn-no-active" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="/avatar/<?php if (file_exists("avatar/avatar-" . $_SESSION['auth'] . ".png")) {
-                                    echo "avatar-" . $_SESSION['auth'] . ".png?cache=" . base64_encode(time());
-                                } else {
-                                    echo "avatar.png";
-                                } ?>" alt=""
-                                     width="58px"
-                                     height="58px"
-                                     class="rounded-circle"
-                                     style="object-fit: cover;"
-                                >
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-header h6" href="<?= $router->generate('info',array('id'=>$_SESSION['auth'])) ?>">Mes Infos</a>
+                <span class="nav navbar-nav" style=" padding: 1rem 0; ">
+                        <div class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
+                                <?= $UserTps->speudo_user ?>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item text-center">
+                                    <img
+                                        src="/avatar/<?php if (file_exists("avatar/avatar-" . $_SESSION['auth'] . ".png")) {
+                                            echo "avatar-" . $_SESSION['auth'] . ".png?cache=" . base64_encode(time());
+                                        } else {
+                                            echo "avatar.png";
+                                        } ?>" alt=""
+                                        width="58px"
+                                        height="58px"
+                                        class="rounded-circle"
+                                        style="object-fit: cover;"
+                                    >
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-header h6"
+                                   href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">Mes Infos</a>
                                 <a class="dropdown-item disabled" href="#"><?= $UserTps->speudo_user ?></a>
                                 <a class="dropdown-item disabled" href="#">score : <?= $UserTps->score_user ?? 0 ?></a>
                                 <h6 class="dropdown-header">Mes TP</h6>
