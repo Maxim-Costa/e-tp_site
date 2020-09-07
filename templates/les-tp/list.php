@@ -27,7 +27,7 @@ if (isset($_SESSION['auth'])) {
 
 ?>
 <h2 class="mt-5">Liste des TP : </h2>
-<div class="d-flex flex-wrap justify-content-around">
+<div class="d-flex flex-wrap justify-content-around mb-5">
     <?php foreach ($tp_querys as $key => $tp_query): ?>
         <div class="card mt-5" style="">
             <span class="badge badge-dark position-absolute"

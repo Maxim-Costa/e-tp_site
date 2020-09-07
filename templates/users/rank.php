@@ -129,7 +129,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
     </div>
 
     <div
-            class="row mt-2 d-none"
+            class="row mt-2 d-none mb-5"
             style="
     border: 1px solid rgb(214, 214, 214);
     border-radius: 10px;
