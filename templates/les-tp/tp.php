@@ -13,7 +13,7 @@ $pageCss = '<style>pre {background: #eee;margin-bottom: 10px;}</style>';
 
 
 ?>
-<div class="card mt-5">
+<div class="card mt-5 mb-5">
     <div class="card-body text-left">
         <h1 class="card-title text-center">
             <?= $posts->tp_projet ?>

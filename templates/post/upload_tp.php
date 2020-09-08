@@ -4,8 +4,6 @@ use App\Connection;
 use App\PostTable;
 use App\Auth;
 
-Auth::AdminVerif();
-
 $pdo = Connection::getPDO();
 
 if (!empty($_POST)) {
