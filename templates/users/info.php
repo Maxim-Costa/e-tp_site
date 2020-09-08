@@ -61,11 +61,6 @@ if ($userInfo) {
                             </div>
                         <?php endif; ?>
                         <br/>
-                        <div>
-                            <span style="font-size: 1.2rem;">Git : </span>
-                            <a style="font-weight: bold;font-size: 1.2rem;" href="<?= $userInfo->git_user ?>">View</a>
-                        </div>
-                        <br/>
                     </div>
                     <div class="col-6 text-center align-self-center">
                         <img src="/avatar/<?php if (file_exists("avatar/avatar-" . $userInfo->id_user . ".png")) {
