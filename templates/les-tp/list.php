@@ -153,7 +153,6 @@ $timeStop = PostTable::GetLastDate($pdo);
     <?php endforeach ?>
 </div>
 
-<?= Auth::Admin("<a class=\"btn btn-primary m-2\" style=\"float: right;\" href=\"" . $router->generate('new_tp') . "\">Nouveau</a>") ?>
 <?php ob_start() ?>
     <script>
         $(document).ready(function () {

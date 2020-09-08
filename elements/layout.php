@@ -99,6 +99,7 @@ if (Auth::check()) {
                                 <a class="dropdown-item disabled" href="#">Global : <?= $UserTps->score_global_user ?? 0 ?></a>
                                 <div class="dropdown-divider"></div>
                                 <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('admin') . '"> Admin&nbsp; <i class="fas fa-toolbox"></i></a>') ?>
+                                <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('new_tp') . '"> New Tp&nbsp; <i class="fas fa-plus"></i></a>') ?>
                                 <a class="dropdown-item"
                                    href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">
                                     Mes TP
