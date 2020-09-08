@@ -61,20 +61,12 @@ if (Auth::check()) {
                 <li class="nav-item" role="presentation" style=" padding: 1rem 0; ">
                     <a class="nav-link" href="<?= $router->generate('rank') ?>">Classement</a></li>
                 <li class="nav-item dropdown" style=" padding: 1rem 0; ">
-                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">Les Tp</a>
-                    <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item text-center" role="presentation"
-                           href="<?= $router->generate('tp_list') ?>">Tous les TP</a>
-                        <hr style="margin: 0 15px 0 15px;"/>
-                        <?php foreach ($tp_querys as $tp_query): ?>
-                            <a class="dropdown-item" role="presentation"
-                               href="<?= $router->generate('tp', array('tp' => str_replace(" ", "-", strtolower($tp_query->tp_projet)), 'id' => $tp_query->id_projet)) ?>"><?= $tp_query->tp_projet ?></a>
-                        <?php endforeach ?>
-                    </div>
+                    <a class="nav-link" href="<?= $router->generate('tp_list') ?>">Tous les TP</a>
                 </li>
             </ul>
             <?php if (!Auth::check()): ?>
-                <span class="navbar-text actions d-flex justify-content-center align-content-center" style="place-items: center;">
+                <span class="navbar-text actions d-flex justify-content-center align-content-center"
+                      style="place-items: center;">
                         <a class="login" href="<?= $router->generate('login') ?>">Log In</a>
                         <a class="btn btn-light action-button" role="button" href="<?= $router->generate('register') ?>"
                            style="border-radius: 10px;">Sign Up</a>
@@ -88,36 +80,34 @@ if (Auth::check()) {
                             <div class="dropdown-menu">
                                 <a class="dropdown-item text-center">
                                     <img
-                                        src="/avatar/<?php if (file_exists("avatar/avatar-" . $_SESSION['auth'] . ".png")) {
-                                            echo "avatar-" . $_SESSION['auth'] . ".png?cache=" . base64_encode(time());
-                                        } else {
-                                            echo "avatar.png";
-                                        } ?>" alt=""
-                                        width="58px"
-                                        height="58px"
-                                        class="rounded-circle"
-                                        style="object-fit: cover;"
+                                            src="/avatar/<?php if (file_exists("avatar/avatar-" . $_SESSION['auth'] . ".png")) {
+                                                echo "avatar-" . $_SESSION['auth'] . ".png?cache=" . base64_encode(time());
+                                            } else {
+                                                echo "avatar.png";
+                                            } ?>" alt=""
+                                            width="58px"
+                                            height="58px"
+                                            class="rounded-circle"
+                                            style="object-fit: cover;"
                                     >
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-header h6"
-                                   href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">Mes Infos</a>
+                                <a class="dropdown-header h6 text-decoration-none"
+                                   href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">Mes Infos : </a>
                                 <a class="dropdown-item disabled" href="#"><?= $UserTps->speudo_user ?></a>
-                                <a class="dropdown-item disabled" href="#">score : <?= $UserTps->score_user ?? 0 ?></a>
-                                <h6 class="dropdown-header">Mes TP</h6>
-                                <?php if ($UserTps->all_tp_name === null): ?>
-                                    <a class="dropdown-item disabled" href="#">Aucun tp rendu</a>
-                                <?php else: ?>
-                                    <?php foreach (explode(',', $UserTps->all_tp_name) as $key => $UserTp): ?>
-                                        <a class="dropdown-item"
-                                           href="<?= explode('$1447$', $UserTps->all_tp_link)[$key] ?>"><?= $UserTp ?></a>
-                                    <?php endforeach ?>
-                                <?php endif ?>
+                                <a class="dropdown-item disabled" href="#">Mensuel : <?= $UserTps->score_user ?? 0 ?></a>
+                                <a class="dropdown-item disabled" href="#">Global : <?= $UserTps->score_global_user ?? 0 ?></a>
                                 <div class="dropdown-divider"></div>
                                 <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('admin') . '"> Admin&nbsp; <i class="fas fa-toolbox"></i></a>') ?>
+                                <a class="dropdown-item"
+                                   href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">
+                                    Mes TP
+                                    <i class="fas fa-code-branch"></i>
+                                </a>
                                 <a class="dropdown-item" href="<?= $router->generate('account_edite') ?>">
                                     éditer&nbsp;
-                                    <i class="fas fa-users-cog"></i></a>
+                                    <i class="fas fa-users-cog"></i>
+                                </a>
                                 <a class="dropdown-item" href="<?= $router->generate('logout') ?>">
                                     logout&nbsp;
                                     <i class="fas fa-sign-out-alt"></i>

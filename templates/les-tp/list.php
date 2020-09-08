@@ -25,7 +25,73 @@ if (isset($_SESSION['auth'])) {
     $tpID_querys = PostTable::GetTPIdUser($pdo, $_SESSION['auth'])[0];
 }
 
+$timeStop = PostTable::GetLastDate($pdo);
 ?>
+
+<?php if(!empty($timeStop)): ?>
+    <h2 class="mt-5">TP en cours : </h2>
+    <div class="card mt-5" style="">
+            <span class="badge badge-dark position-absolute"
+                  style="width: fit-content">N°<?= count($tp_querys) ?></span>
+        <div class="card-body">
+            <h5 class="card-title d-flex"><?= $tp_querys[0]->tp_projet ?></h5>
+            <hr class="divider mb-0"/>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div><span class="font-weight-bold">Type : </span><?= $tp_querys[0]->type_projet ?></div>
+                        <br/>
+                        <div><span class="font-weight-bold">Points : </span><?= $tp_querys[0]->points_projet ?></div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <span class="font-weight-bold">Durée : </span>
+                            <?= date_diff(date_create($tp_querys[0]->date_start_projet), date_create($tp_querys[0]->date_final_projet))->format('%a jours'); ?>
+                        </div>
+                        <br/>
+                        <?php if (isset($_SESSION['auth'])): ?>
+                            <div><span class="font-weight-bold align-middle"> Rendus : </span>
+                                <?php if (!in_array((string)$tp_querys[0]->id_projet, explode(',', $tpID_querys->all_tp_id))): ?>
+                                    <img src="/assets/svg/delete.svg" height="25px"
+                                         onerror="this.onerror=null; this.src='/assets/img/delete.png'">
+                                <?php else: ?>
+                                    <img src="/assets/svg/checkmark.svg" height="25px"
+                                         onerror="this.onerror=null; this.src='/assets/img/checkmark.png'">
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <span class="font-weight-bold">Début-Fin : </span>
+                    <span>
+                        <?php
+                        $dateTime_start = explode(' ', $tp_querys[0]->date_start_projet);
+                        $time_start = $dateTime_start[1];
+                        $date_start = explode('-', $dateTime_start[0]);
+
+                        $dateTime_final = explode(' ', $tp_querys[0]->date_final_projet);
+                        $time_final = $dateTime_final[1];
+                        $date_final = explode('-', $dateTime_final[0]);
+
+                        echo "{$time_start} {$date_start[2]}/{$date_start[1]}/{$date_start[0]} à {$time_final} {$date_final[2]}/{$date_final[1]}/{$date_final[0]}";
+                        ?>
+                    </span>
+                </div>
+                <div>
+                    <span class="font-weight-bold">Coutdown : </span>
+                    <span style="display: contents" id="clock"></span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="<?= $router->generate('tp', array('tp' => str_replace(" ", "-", strtolower($tp_querys[0]->tp_projet)), 'id' => $tp_querys[0]->id_projet)) ?>"
+                   class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <h2 class="mt-5">Liste des TP : </h2>
 <div class="d-flex flex-wrap justify-content-around mb-5">
     <?php foreach ($tp_querys as $key => $tp_query): ?>
@@ -88,3 +154,12 @@ if (isset($_SESSION['auth'])) {
 </div>
 
 <?= Auth::Admin("<a class=\"btn btn-primary m-2\" style=\"float: right;\" href=\"" . $router->generate('new_tp') . "\">Nouveau</a>") ?>
+<?php ob_start() ?>
+    <script>
+        $(document).ready(function () {
+            $("#clock").countdown("<?= $timeStop[0]->date_final_projet ?>", function (t) {
+                $(this).html(t.strftime("%Dj&nbsp;%Hh&nbsp;%Mm&nbsp;%Ss"))
+            })
+        })
+    </script>
+<?php $pageJavascripts = ob_get_clean(); ?>
