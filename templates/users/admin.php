@@ -15,7 +15,7 @@ $posts = PostTable::Get($pdo, "");
 ?>
 
 <div
-        class="row mt-5"
+        class="row mt-5 mb-5"
         style="
         border: 1px solid rgb(214, 214, 214);
         border-radius: 10px;
