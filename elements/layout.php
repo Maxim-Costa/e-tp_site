@@ -20,11 +20,28 @@ if (Auth::check()) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
+
+
+
     <meta charset="UTF-8">
+    <meta name="Content-Type" content="UTF-8">
+    <meta name="Content-Language" content="fr">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
+    <meta name="Keywords" content="tp, e-tp, e tp, site tp, tp online, tp en ligne, récompense, reward, learning, apprendre">
+    <meta name="Subject" content="des tp en ligne">
+    <meta name="Copyright" content="Maxim Costa">
+    <meta name="Author" content="Maxim COSTA">
+    <meta name="Publisher" content="Maxim Costa">
+    <meta name="Reply-To" content="mxmcosta@gmail.com">
+    <meta name="Robots" content="all">
+    <meta name="Rating" content="general">
+    <meta name="Distribution" content="global">
+    <meta name="Category" content="internet">
+
     <title><?php echo $pageTitle ?? 'Home' ?> - E-TP</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
