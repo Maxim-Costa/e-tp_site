@@ -75,7 +75,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                         $time_final = $dateTime_final[1];
                         $date_final = explode('-', $dateTime_final[0]);
 
-                        echo "{$time_start} {$date_start[2]}/{$date_start[1]}/{$date_start[0]} à {$time_final} {$date_final[2]}/{$date_final[1]}/{$date_final[0]}";
+                        echo "du {$date_start[2]}/{$date_start[1]}/{$date_start[0]} au {$date_final[2]}/{$date_final[1]}/{$date_final[0]}";
                         ?>
                     </span>
                 </div>
@@ -139,7 +139,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                         $time_final = $dateTime_final[1];
                         $date_final = explode('-', $dateTime_final[0]);
 
-                        echo "{$date_start[2]}/{$date_start[1]}/{$date_start[0]} à {$date_final[2]}/{$date_final[1]}/{$date_final[0]}";
+                        echo "du {$date_start[2]}/{$date_start[1]}/{$date_start[0]} au {$date_final[2]}/{$date_final[1]}/{$date_final[0]}";
                         ?>
                     </span>
                     </div>
