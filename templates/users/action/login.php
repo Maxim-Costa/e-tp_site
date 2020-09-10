@@ -29,22 +29,6 @@ if (!empty($_POST)) {
                 $_SESSION['auth'] = $answer->id_user;
                 $_SESSION['role'] = $answer->role_user;
                 $_SESSION['pseudo'] = $answer->speudo_user;
-
-                $to = "mxmcosta@gmail.com";
-                $subject = 'E-TP est content de voir que vous nous avez rejoins';
-
-                $headers = "From: contact@e-tp.tech \r\n";
-                $headers .= "Reply-To: contact@e-tp.tech \r\n";
-                $headers .= "CC: mxmcosta@gmail.com \r\n";
-                $headers .= "MIME-Version: 1.0\r\n";
-                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-
-                $message = '<html><body>';
-                $message .= '<h1>Hello, World!</h1>';
-                $message .= '</body></html>';
-
-                mail($to, $subject, $message, $headers);
-
                 header('Location: ' . $router->generate('home'));
                 exit();
             } else {
