@@ -8,7 +8,6 @@ RewriteEngine on
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
 
-
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.
 # To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
@@ -44,17 +43,22 @@ RewriteEngine on
 </filesMatch>
 
 
-## http -> https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
 
 # set the base URL prefix
 RewriteBase /
 # for requests for index.html, just respond with the file
 RewriteRule ^index.html$ - [L]
 # if requested path is not a valid filename, continue rewrite
-RewriteCond %{REQUEST_FILENAME} !-f
 # if requested path is not a valid directory, continue rewrite
-RewriteCond %{REQUEST_FILENAME} !-d
 # if you have continue to here, respond with index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
+
+RewriteCond %{HTTP_HOST} ^e\-tp\.hosterfy\.fr$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.e\-tp\.hosterfy\.fr$
+RewriteRule ^/?$ "https\:\/\/e\-tp\.tech\/" [R=301,L]
+
+## http -> https
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
