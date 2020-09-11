@@ -24,14 +24,14 @@ if (Auth::check()) {
 
 <head>
 
-
-
     <meta charset="UTF-8">
     <meta name="Content-Type" content="UTF-8">
     <meta name="Content-Language" content="fr">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
-    <meta name="Keywords" content="tp, e-tp, e tp, site tp, tp online, tp en ligne, récompense, reward, learning, apprendre">
+    <meta name="Description"
+          content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
+    <meta name="Keywords"
+          content="tp, e-tp, e tp, site tp, tp online, tp en ligne, récompense, reward, learning, apprendre">
     <meta name="Subject" content="des tp en ligne">
     <meta name="Copyright" content="Maxim Costa">
     <meta name="Author" content="Maxim COSTA">
@@ -45,11 +45,17 @@ if (Auth::check()) {
     <meta property="og:title" content="E-TP">
     <meta property="og:site_name" content="e-tp.tech">
     <meta property="og:url" content="https://e-tp.tech/">
-    <meta property="og:description" content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
+    <meta property="og:description"
+          content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.ibb.co/K2RyLPc/e-tp-tech.png">
 
-
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://e-tp.tech/">
+    <meta property="twitter:title" content="Fin du TP dans :">
+    <meta property="twitter:description"
+          content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
+    <meta property="twitter:image" content="https://i.ibb.co/K2RyLPc/e-tp-tech.png">
 
     <title><?php echo $pageTitle ?? 'Home' ?> - E-TP</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -121,8 +127,10 @@ if (Auth::check()) {
                                 <a class="dropdown-header h6 text-decoration-none"
                                    href="<?= $router->generate('info', array('id' => $_SESSION['auth'])) ?>">Mes Infos : </a>
                                 <a class="dropdown-item disabled" href="#"><?= $UserTps->speudo_user ?></a>
-                                <a class="dropdown-item disabled" href="#">Mensuel : <?= $UserTps->score_user ?? 0 ?></a>
-                                <a class="dropdown-item disabled" href="#">Global : <?= $UserTps->score_global_user ?? 0 ?></a>
+                                <a class="dropdown-item disabled"
+                                   href="#">Mensuel : <?= $UserTps->score_user ?? 0 ?></a>
+                                <a class="dropdown-item disabled"
+                                   href="#">Global : <?= $UserTps->score_global_user ?? 0 ?></a>
                                 <div class="dropdown-divider"></div>
                                 <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('admin') . '"> Admin&nbsp; <i class="fas fa-toolbox"></i></a>') ?>
                                 <?= Auth::Admin('<a class="dropdown-item" href="' . $router->generate('new_tp') . '"> New Tp&nbsp; <i class="fas fa-plus"></i></a>') ?>
