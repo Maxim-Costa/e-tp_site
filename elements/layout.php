@@ -42,6 +42,15 @@ if (Auth::check()) {
     <meta name="Distribution" content="global">
     <meta name="Category" content="internet">
 
+    <meta property="og:title" content="E-TP">
+    <meta property="og:site_name" content="e-tp.tech">
+    <meta property="og:url" content="https://e-tp.tech/">
+    <meta property="og:description" content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.ibb.co/K2RyLPc/e-tp-tech.png">
+
+
+
     <title><?php echo $pageTitle ?? 'Home' ?> - E-TP</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
