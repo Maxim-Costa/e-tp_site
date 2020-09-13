@@ -48,14 +48,14 @@ if (Auth::check()) {
     <meta property="og:description"
           content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://i.ibb.co/K2RyLPc/e-tp-tech.png">
+    <meta property="og:image" content="https://i.ibb.co/C9NVb1K/E-tp.png">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://e-tp.tech/">
     <meta property="twitter:title" content="Fin du TP dans :">
     <meta property="twitter:description"
           content="Faire des tp c'est bien avoir une récompense tout en s'entraînent, c'est motivant non. E-tp et un site de tp en ligne avec des récompenses tous les mois">
-    <meta property="twitter:image" content="https://i.ibb.co/K2RyLPc/e-tp-tech.png">
+    <meta property="twitter:image" content="https://i.ibb.co/C9NVb1K/E-tp.png">
 
     <title><?php echo $pageTitle ?? 'Home' ?> - E-TP</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
