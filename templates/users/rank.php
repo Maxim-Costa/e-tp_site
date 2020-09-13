@@ -91,8 +91,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                             <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
                                 style="vertical-align: center!important;"><?= $post->score_user ?></td>
                             <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
-                                style="vertical-align: center!important;"><?= $post->tp_count ?>
-                                /<?= $post->count_tp_all ?></td>
+                                style="vertical-align: center!important;"><?= $post->tp_count ?></td>
                             <td>
                                 <div class="btn-group">
                                     <button
@@ -167,8 +166,7 @@ $posts_global = PostTable::GetSortGlobal($pdo, $q);
                                 scope="row"
                                 style="vertical-align: center!important;"><?= $post->score_global_user ?></td>
                             <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
-                                scope="row" style="vertical-align: center!important;"><?= $post->tp_count ?>
-                                /<?= $post->count_tp_all ?></td>
+                                scope="row" style="vertical-align: center!important;"><?= $post->tp_count ?></td>
                             <td>
                                 <div class="btn-group">
                                     <button

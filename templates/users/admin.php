@@ -65,7 +65,7 @@ $posts = PostTable::Get($pdo, "");
                             <?= $post->score_user ?>
                         </td>
                         <td>
-                            <?= $post->tp_count ?>/<?= $post->count_tp_all ?>
+                            <?= $post->tp_count ?>
                         </td>
                         <td>
                             <button type="button" class="btn btn-primary ModalTPVIEW" data-toggle="modal"

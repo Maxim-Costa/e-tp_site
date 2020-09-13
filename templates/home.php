@@ -125,8 +125,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                                         scope="row" style="vertical-align: center!important;"><?= $post->rank ?></th>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_user ?></td>
-                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>
-                                        /<?= $post->count_tp_all ?></td>
+                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?></td>
                                     <td>
                                         <div class="btn-group">
                                             <button
@@ -193,11 +192,11 @@ $timeStop = PostTable::GetLastDate($pdo);
                             <?php foreach ($posts_global as $key => $post): ?>
                                 <tr>
                                     <th onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'
-                                        scope="row" style="vertical-align: center!important;"><?= $post->rank_global ?></th>
+                                        scope="row"
+                                        style="vertical-align: center!important;"><?= $post->rank_global ?></th>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->speudo_user ?></td>
                                     <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->score_global_user ?></td>
-                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?>
-                                        /<?= $post->count_tp_all ?></td>
+                                    <td onclick='window.location.href = "<?= $router->generate('info', array('id' => $post->id_user)) ?>"'><?= $post->tp_count ?></td>
                                     <td>
                                         <div class="btn-group">
                                             <button
