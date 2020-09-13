@@ -1,11 +1,16 @@
 <?php
 
 use App\Auth;
+use App\Connection;
+use App\PostTable;
 
 Auth::AdminVerif();
 
 $pageCss = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">';
 $pageTitle = 'new tp';
+
+$pdo = Connection::getPDO();
+$types = PostTable::GetTpType($pdo);
 
 ?>
 <div class="mt-5 card">
@@ -23,9 +28,9 @@ $pageTitle = 'new tp';
                 <input type="number" class="form-control" name="nbJ" id="nbJ" placeholder="nombres de jours">
                 <select class="custom-select ml-4 form-control" id="typeProject" required>
                     <option selected>Choose...</option>
-                    <option value="1">Web</option>
-                    <option value="2">Algo</option>
-                    <option value="100">Others</option>
+                    <?php foreach ($types as $type): ?>
+                        <option value="<?= $type->id_type ?>"><?= $type->name ?></option>
+                    <?php endforeach; ?>
                 </select>
                 <button type="submit" class="btn btn-primary ml-4 mr-4" id="subPost">Submit</button>
             </div>
