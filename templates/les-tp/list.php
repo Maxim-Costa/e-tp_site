@@ -27,6 +27,7 @@ if (isset($_SESSION['auth'])) {
 $timeStop = PostTable::GetLastDate($pdo);
 
 if (!empty($timeStop)) {
+    $currentTPKey = 0;
     foreach ($tp_querys as $key => $tp) {
         if ($tp->id_projet === $timeStop[0]->id_projet) {
             $currentTPKey = $key;
