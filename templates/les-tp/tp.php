@@ -2,11 +2,17 @@
 
 $tp_id = (int)$params['id'];
 
+use App\Auth;
 use App\Connection;
+
 $pdo = Connection::getPDO();
 
-$query = $pdo->query('select * from etphoste_client.projet_etphoste where projet_etphoste.id_projet ='.$tp_id.';');
+$query = $pdo->query('select * from etphoste_client.projet_etphoste where projet_etphoste.id_projet =' . $tp_id . ';');
 $posts = $query->fetchAll(PDO::FETCH_OBJ)[0];
+
+if (time() < strtotime($posts->date_start_projet)) {
+    Auth::AdminVerif();
+}
 
 $pageTitle = $posts->tp_projet;
 $pageCss = '<style>pre {background: #eee;margin-bottom: 10px;}</style>';
@@ -20,9 +26,9 @@ $pageCss = '<style>pre {background: #eee;margin-bottom: 10px;}</style>';
         </h1>
         <br/>
         <?= base64_decode($posts->desc_projet) ?>
-        <span class="font-weight-lighter">Début : <?=$posts->date_start_projet?></span>
+        <span class="font-weight-lighter">Début : <?= $posts->date_start_projet ?></span>
         <br/>
-        <span class="font-weight-lighter">Fin : <?=$posts->date_final_projet?></span>
+        <span class="font-weight-lighter">Fin : <?= $posts->date_final_projet ?></span>
     </div>
 </div>
 
