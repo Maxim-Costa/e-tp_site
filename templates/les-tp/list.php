@@ -100,7 +100,7 @@ if (!empty($timeStop)) {
                 </div>
             </div>
             <div class="d-flex justify-content-end">
-                <a href="<?= $router->generate('tp', array('tp' => str_replace(" ", "-", strtolower($tp_querys[$currentTPKey]->tp_projet)), 'id' => $tp_querys[$currentTPKey]->id_projet)) ?>"
+                <a href="<?= $router->generate('tp', array('tp' => str_replace(array(" ", "'", '"'), "-", strtolower($tp_querys[$currentTPKey]->tp_projet)), 'id' => $tp_querys[$currentTPKey]->id_projet)) ?>"
                    class="btn btn-primary">Go</a>
             </div>
         </div>
