@@ -315,7 +315,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                             "<div class='d-flex'>" +
                             (
                                 (InfoUser.all_tp_id.indexOf(value) !== -1) ?
-                                    "<a class='btn btn-primary ' href='" + InfoUser.all_tp_link[index] + "' target='_blank' data-toggle='tooltip' data-placement='top' title='Regarder le tp'>" +
+                                    "<a class='btn btn-primary ' href='" + InfoUser.all_tp_link[InfoUser.all_tp_id.indexOf(value)] + "' target='_blank' data-toggle='tooltip' data-placement='top' title='Regarder le tp'>" +
                                     "<i class='fas fa-eye'></i>" +
                                     "</a>&nbsp;" +
                                     (
