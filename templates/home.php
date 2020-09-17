@@ -307,7 +307,7 @@ $timeStop = PostTable::GetLastDate($pdo);
                     $('#CurrentIDSELECT').text(InfoUser.speudo_user);
 
                     $('.bodyTPview').html("<h6>Liste des tp</h6><br/>");
-
+                    console.log(InfoUser)
                     InfoUser.AllTp_id.map((value, index) => {
                         $('.bodyTPview').append(
                             "<div class='d-flex align-items-center'>" +
